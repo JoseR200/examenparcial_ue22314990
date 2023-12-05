@@ -13,9 +13,9 @@
     <parameter key="encoding" value="SYSTEM"/>
     <process expanded="true">
       <operator activated="true" class="retrieve" compatibility="10.2.000" expanded="true" height="68" name="Retrieve TextMinedData" width="90" x="45" y="34">
-        <parameter key="repository_entry" value="../Data/TextMinedData"/>
+        <parameter key="repository_entry" value="../Data/text_mined_data"/>
       </operator>
-      <operator activated="true" class="concurrency:cross_validation" compatibility="10.0.000" expanded="true" height="145" name="Validation" width="90" x="380" y="34">
+      <operator activated="true" class="concurrency:cross_validation" compatibility="10.0.000" expanded="true" height="145" name="Validation" width="90" x="246" y="34">
         <parameter key="split_on_batch_attribute" value="false"/>
         <parameter key="leave_one_out" value="false"/>
         <parameter key="number_of_folds" value="10"/>
@@ -59,11 +59,11 @@
         </process>
         <description align="center" color="transparent" colored="false" width="126">A cross-validation evaluating a Naive Bayes model.</description>
       </operator>
-      <operator activated="true" class="store" compatibility="10.2.000" expanded="true" height="68" name="Store (2)" width="90" x="782" y="136">
+      <operator activated="true" class="store" compatibility="10.2.000" expanded="true" height="68" name="Store (2)" width="90" x="447" y="136">
         <parameter key="repository_entry" value="../Results/Performance"/>
       </operator>
-      <operator activated="true" class="store" compatibility="10.2.000" expanded="true" height="68" name="Store" width="90" x="782" y="34">
-        <parameter key="repository_entry" value="../Results/Model"/>
+      <operator activated="true" class="store" compatibility="10.2.000" expanded="true" height="68" name="Store" width="90" x="447" y="34">
+        <parameter key="repository_entry" value="../Models/Model"/>
       </operator>
       <connect from_op="Retrieve TextMinedData" from_port="output" to_op="Validation" to_port="example set"/>
       <connect from_op="Validation" from_port="model" to_op="Store" to_port="input"/>

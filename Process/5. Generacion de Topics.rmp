@@ -97,7 +97,6 @@
           <parameter key="FullText" value="text.regular"/>
           <parameter key="TicketType" value="nominal.regular"/>
           <parameter key="PostTitle" value="polynominal.regular"/>
-          <parameter key="CreationDate" value="date.regular"/>
         </list>
         <parameter key="remove_duplicate_roles" value="false"/>
       </operator>

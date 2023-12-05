@@ -13,17 +13,37 @@
     <parameter key="encoding" value="SYSTEM"/>
     <process expanded="true">
       <operator activated="false" class="restapi:get" compatibility="1.1.000" expanded="true" height="68" name="GET Request" width="90" x="45" y="34">
-        <parameter key="url" value="https://www.kaggle.com/datasets/sukuzhanay/examen-parcial/download?datasetVersionNumber=1"/>
+        <parameter key="url" value="https://storage.googleapis.com/kaggle-data-sets/4112228/7128102/bundle/archive.zip?X-Goog-Algorithm=GOOG4-RSA-SHA256&amp;X-Goog-Credential=gcp-kaggle-com%40kaggle-161607.iam.gserviceaccount.com%2F20231205%2Fauto%2Fstorage%2Fgoog4_request&amp;X-Goog-Date=20231205T123124Z&amp;X-Goog-Expires=259200&amp;X-Goog-SignedHeaders=host&amp;X-Goog-Signature=41794362796c3a0aba745f8d7638d08a3c070dc9a67a912ec00a35dbf91f4fc54729d452821cbceeee04327d9e0fdd665f8afabf74f5761a44db0db2057f626456025765d6700308a2ad7b69c62cfc470f0809b5dd68cc7470a7122645af6227dd7632eaef9da0882ebe8ec96baef42b7a8eda6d58c76c7813b120064815894450ae2eacc0f47f02975a1bdb1acd068c8eb0198ab61046582f91d9571e7ddf4c665cc4cbeb85cf483e1e6ed85e9f8f043bef70ef846e39b0e34f761c5e4c7889e26de77320cc439a8b0cdfd279b2576fe0596ef85c1fc863c2bad8193b4cc2c918d9d0cf2a3769fc060d653c59814bfa7327a72076eb644816355b7188d8d894"/>
         <list key="parameters"/>
         <list key="header"/>
         <parameter key="output format" value="json"/>
       </operator>
-      <operator activated="false" class="web:crud_get" compatibility="10.0.000" expanded="true" height="68" name="GET (REST)" width="90" x="45" y="136">
-        <parameter key="request_url" value="https://www.kaggle.com/datasets/sukuzhanay/examen-parcial/download?datasetVersionNumber=1"/>
-        <list key="request_headers"/>
-        <parameter key="response_body_type" value="json"/>
-        <parameter key="inject_connection_secret" value="false"/>
-        <parameter key="fail_on_endpoint_error" value="true"/>
+      <operator activated="false" class="read_csv" compatibility="10.2.000" expanded="true" height="68" name="Read CSV (2)" width="90" x="179" y="34">
+        <parameter key="column_separators" value=";"/>
+        <parameter key="trim_lines" value="false"/>
+        <parameter key="use_quotes" value="true"/>
+        <parameter key="quotes_character" value="&quot;"/>
+        <parameter key="escape_character" value="\"/>
+        <parameter key="skip_comments" value="false"/>
+        <parameter key="comment_characters" value="#"/>
+        <parameter key="starting_row" value="1"/>
+        <parameter key="parse_numbers" value="true"/>
+        <parameter key="decimal_character" value="."/>
+        <parameter key="grouped_digits" value="false"/>
+        <parameter key="grouping_character" value=","/>
+        <parameter key="infinity_representation" value=""/>
+        <parameter key="date_format" value=""/>
+        <parameter key="first_row_as_names" value="true"/>
+        <list key="annotations"/>
+        <parameter key="time_zone" value="SYSTEM"/>
+        <parameter key="locale" value="English (United States)"/>
+        <parameter key="encoding" value="SYSTEM"/>
+        <parameter key="read_all_values_as_polynominal" value="false"/>
+        <list key="data_set_meta_data_information"/>
+        <parameter key="read_not_matching_values_as_missings" value="true"/>
+      </operator>
+      <operator activated="false" class="store" compatibility="10.2.000" expanded="true" height="68" name="Store (2)" width="90" x="313" y="34">
+        <parameter key="repository_entry" value="../Data/aa"/>
       </operator>
       <operator activated="true" class="read_csv" compatibility="10.2.000" expanded="true" height="68" name="Read CSV" width="90" x="45" y="238">
         <parameter key="csv_file" value="C:\Users\joser\Documents\RapidMiner\Local Repository\examenparcial_ue22314990\Data\full_dataset.csv"/>
@@ -59,11 +79,9 @@
         <parameter key="repository_entry" value="../Data/whole_dataset"/>
       </operator>
       <connect from_op="Read CSV" from_port="output" to_op="Store" to_port="input"/>
-      <connect from_op="Store" from_port="through" to_port="result 2"/>
       <portSpacing port="source_input 1" spacing="0"/>
       <portSpacing port="sink_result 1" spacing="0"/>
       <portSpacing port="sink_result 2" spacing="0"/>
-      <portSpacing port="sink_result 3" spacing="0"/>
     </process>
   </operator>
 </process>
